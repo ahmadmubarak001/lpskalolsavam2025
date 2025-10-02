@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala School Kalolsavam - LPS Vilakkupara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .kerala-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        /* Static Background */
+        .static-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+        }
+        .print-only { display: none; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Static Background -->
+    <div class="static-bg"></div>
+    <!-- Navigation -->
+    <nav class="gradient-bg kerala-pattern text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="text-2xl">🎭</div>
+                    <div>
+                        <h1 class="text-xl font-bold">Kerala School Kalolsavam</h1>
+                        <p class="text-sm opacity-90">LPS Vilakkupara</p>
+                    </div>
+                </div>
+                <div class="flex space-x-4">
+                    <button onclick="showSection('home')" class="px-4 py-2 rounded-lg bg-white bg-opacity-20">Home</button>
+                    <button onclick="showSection('register')" class="px-4 py-2 rounded-lg bg-white bg-opacity-20">Register</button>
+                    <button onclick="showSection('results')" class="px-4 py-2 rounded-lg bg-white bg-opacity-20">Results</button>
+                    <button onclick="showSection('admin')" class="px-4 py-2 rounded-lg bg-yellow-500 text-black font-semibold">Admin</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <div id="home" class="section">
+        <div class="gradient-bg kerala-pattern text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <div class="text-6xl mb-6">
+                    <span class="inline-block">🎨</span>
+                    <span class="inline-block">🎭</span>
+                    <span class="inline-block">🎵</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-4">Kerala School Kalolsavam</h1>
+                <h2 class="text-2xl mb-6">LPS Vilakkupara</h2>
+                <div class="bg-white bg-opacity-20 rounded-lg p-6 max-w-md mx-auto">
+                    <p class="text-lg font-semibold">
+                        <span class="inline-block">📅</span> 
+                        <span id="eventDate">Date: To be announced soon</span>
+                    </p>
+                    <p class="mt-2">Stay tuned for updates!</p>
+                    <div class="mt-4 text-sm">
+                        <p><span class="inline-block">👥</span> Visitors: <span id="visitorCount">0</span></p>
+                        <p><span class="inline-block">🕒</span> <span id="currentDateTime"></span></p>
+                        <p class="mt-2 text-xs bg-green-500 bg-opacity-30 rounded px-2 py-1">
+                            <span class="inline-block">🌐</span> Universal Storage Active - All data shared in real-time
+                        </p>
+                    </div>
+                </div>
+                <button onclick="showSection('register')" class="mt-8 bg-yellow-500 text-black px-8 py-3 rounded-lg font-bold text-lg">
+                    Register Now
+                </button>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg p-6 card-shadow text-center">
+                    <div class="text-4xl mb-4">🎪</div>
+                    <h3 class="text-xl font-bold mb-2">Cultural Events</h3>
+                    <p class="text-gray-600">Dance, Music, Drama and more traditional Kerala art forms</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 card-shadow text-center">
+                    <div class="text-4xl mb-4">🏆</div>
+                    <h3 class="text-xl font-bold mb-2">Competitions</h3>
+                    <p class="text-gray-600">Multiple categories for different age groups and talents</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 card-shadow text-center">
+                    <div class="text-4xl mb-4">🎖️</div>
+                    <h3 class="text-xl font-bold mb-2">Recognition</h3>
+                    <p class="text-gray-600">Certificates and prizes for all participants</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Registration Section -->
+    <div id="register" class="section hidden">
+        <div class="container mx-auto px-4 py-8">
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white rounded-lg card-shadow p-8">
+                    <h2 class="text-3xl font-bold text-center mb-8 text-purple-800">Student Registration</h2>
+                    
+                    <form id="registrationForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+                                <input type="text" id="studentName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Contact Number *</label>
+                                <input type="tel" id="contactNumber" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">School Name *</label>
+                                <input type="text" id="schoolName" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Class *</label>
+                                <select id="studentClass" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                    <option value="">Select Class</option>
+                                    <option value="1">Class 1</option>
+                                    <option value="2">Class 2</option>
+                                    <option value="3">Class 3</option>
+                                    <option value="4">Class 4</option>
+                                    <option value="5">Class 5</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Division *</label>
+                                <select id="division" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                    <option value="">Select Division</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Student Photo</label>
+                            <input type="file" id="studentPhoto" accept="image/*" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                            <p class="text-sm text-gray-500 mt-1">Upload a passport-size photo (optional)</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-4">Select Competition Items *</label>
+                            <div id="itemsList" class="grid md:grid-cols-2 gap-3 max-h-60 overflow-y-auto border border-gray-200 rounded-lg p-4">
+                                <!-- Items will be loaded here -->
+                            </div>
+                        </div>
+
+                        <button type="submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg font-semibold text-lg">
+                            Register Student
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" class="section hidden">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold text-center mb-8 text-purple-800">Competition Results</h2>
+            
+            <div class="bg-white rounded-lg card-shadow p-6">
+                <div class="mb-6">
+                    <select id="resultFilter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                        <option value="">All Items</option>
+                    </select>
+                </div>
+                
+                <div id="resultsDisplay" class="space-y-6">
+                    <div class="text-center text-gray-500 py-8">
+                        <div class="text-4xl mb-4">🏆</div>
+                        <p>Results will be published here after competitions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Section -->
+    <div id="admin" class="section hidden">
+        <div class="container mx-auto px-4 py-8">
+            <!-- Admin Login -->
+            <div id="adminLogin" class="max-w-md mx-auto">
+                <div class="bg-white rounded-lg card-shadow p-8">
+                    <h2 class="text-2xl font-bold text-center mb-6 text-red-600">Admin Login</h2>
+                    <form id="adminLoginForm">
+                        <div class="mb-4">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Username</label>
+                            <input type="text" id="adminUsername" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                            <input type="password" id="adminPassword" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500">
+                        </div>
+                        <button type="submit" class="w-full bg-red-600 text-white py-3 px-6 rounded-lg font-semibold">
+                            Login
+                        </button>
+                    </form>
+                    <p class="text-sm text-gray-500 mt-4 text-center">Default: admin / admin123</p>
+                </div>
+            </div>
+
+            <!-- Admin Panel -->
+            <div id="adminPanel" class="hidden">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold text-red-600">Admin Panel</h2>
+                    <button onclick="adminLogout()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">Logout</button>
+                </div>
+
+                <div class="grid md:grid-cols-6 gap-4 mb-8">
+                    <button onclick="showAdminTab('items')" class="admin-tab bg-blue-500 text-white p-4 rounded-lg font-semibold">
+                        <span class="inline-block">⚙️</span> Manage Items
+                    </button>
+                    <button onclick="showAdminTab('participants')" class="admin-tab bg-green-500 text-white p-4 rounded-lg font-semibold">
+                        <span class="inline-block">👥</span> Participants
+                    </button>
+                    <button onclick="showAdminTab('results-entry')" class="admin-tab bg-purple-500 text-white p-4 rounded-lg font-semibold">
+                        <span class="inline-block">🏆</span> Enter Results
+                    </button>
+                    <button onclick="showAdminTab('cards')" class="admin-tab bg-yellow-500 text-black p-4 rounded-lg font-semibold">
+                        <span class="inline-block">🎫</span> Generate Cards
+                    </button>
+                    <button onclick="showAdminTab('event-settings')" class="admin-tab bg-indigo-500 text-white p-4 rounded-lg font-semibold">
+                        <span class="inline-block">📅</span> Event Settings
+                    </button>
+                    <button onclick="showAdminTab('data')" class="admin-tab bg-red-500 text-white p-4 rounded-lg font-semibold">
+                        <span class="inline-block">💾</span> Data Management
+                    </button>
+                </div>
+
+                <!-- Manage Items Tab -->
+                <div id="admin-items" class="admin-content bg-white rounded-lg card-shadow p-6">
+                    <h3 class="text-xl font-bold mb-4">Manage Competition Items</h3>
+                    
+                    <form id="addItemForm" class="mb-6">
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <input type="text" id="newItemName" placeholder="Item Name" required class="px-4 py-2 border border-gray-300 rounded-lg">
+                            <select id="newItemCategory" required class="px-4 py-2 border border-gray-300 rounded-lg">
+                                <option value="">Select Category</option>
+                                <option value="Dance">Dance</option>
+                                <option value="Music">Music</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Art">Art</option>
+                                <option value="Literature">Literature</option>
+                            </select>
+                            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Add Item</button>
+                        </div>
+                    </form>
+
+                    <div id="itemsManagement" class="space-y-3">
+                        <!-- Items will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Participants Tab -->
+                <div id="admin-participants" class="admin-content hidden bg-white rounded-lg card-shadow p-6">
+                    <h3 class="text-xl font-bold mb-4">Registered Participants</h3>
+                    
+                    <div class="mb-4">
+                        <input type="text" id="participantSearch" placeholder="Search participants..." class="px-4 py-2 border border-gray-300 rounded-lg w-full md:w-auto">
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse border border-gray-300">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Name</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">School</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Class</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Contact</th>
+                                    <th class="border border-gray-300 px-4 py-2 text-left">Items</th>
+                                </tr>
+                            </thead>
+                            <tbody id="participantsTable">
+                                <!-- Participants will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Results Entry Tab -->
+                <div id="admin-results-entry" class="admin-content hidden bg-white rounded-lg card-shadow p-6">
+                    <h3 class="text-xl font-bold mb-4">Enter Competition Results</h3>
+                    
+                    <form id="resultEntryForm" class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Competition Item</label>
+                                <select id="resultItem" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                    <option value="">Select Item</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Position</label>
+                                <select id="resultPosition" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                    <option value="">Select Position</option>
+                                    <option value="1st">1st Place 🥇</option>
+                                    <option value="2nd">2nd Place 🥈</option>
+                                    <option value="3rd">3rd Place 🥉</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Winner</label>
+                            <select id="resultWinner" required class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+                                <option value="">Select Participant</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="bg-purple-500 text-white px-6 py-2 rounded-lg">
+                            Add Result
+                        </button>
+                    </form>
+
+                    <div id="currentResults" class="mt-8">
+                        <h4 class="text-lg font-semibold mb-4">Current Results</h4>
+                        <div id="resultsManagement" class="space-y-3">
+                            <!-- Results will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Settings Tab -->
+                <div id="admin-event-settings" class="admin-content hidden bg-white rounded-lg card-shadow p-6">
+                    <h3 class="text-xl font-bold mb-6 text-indigo-600">
+                        <span class="inline-block">📅</span> Event Settings
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Event Date Settings -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-blue-600">
+                                <span class="inline-block">📆</span> Event Date & Time
+                            </h4>
+                            
+                            <form id="eventDateForm" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Event Date</label>
+                                    <input type="date" id="eventDateInput" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Event Time</label>
+                                    <input type="time" id="eventTimeInput" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Event Status</label>
+                                    <select id="eventStatusInput" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500">
+                                        <option value="announced">Date Announced</option>
+                                        <option value="tba">To be announced</option>
+                                        <option value="ongoing">Event Ongoing</option>
+                                        <option value="completed">Event Completed</option>
+                                    </select>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-indigo-500 text-white px-4 py-2 rounded-lg font-semibold">
+                                    <span class="inline-block">💾</span> Update Event Date
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- Visitor Counter Settings -->
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-green-600">
+                                <span class="inline-block">👥</span> Visitor Counter
+                            </h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                    <div class="text-3xl font-bold text-green-600" id="adminVisitorCount">0</div>
+                                    <div class="text-sm text-gray-600">Total Visitors</div>
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-semibold text-gray-700 mb-2">Reset Counter To:</label>
+                                    <input type="number" id="visitorResetInput" min="0" value="0" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                                </div>
+                                
+                                <button onclick="resetVisitorCounter()" class="w-full bg-green-500 text-white px-4 py-2 rounded-lg font-semibold">
+                                    <span class="inline-block">🔄</span> Reset Visitor Counter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Current Settings Display -->
+                    <div class="mt-8 bg-gray-50 rounded-lg p-6">
+                        <h4 class="text-lg font-semibold mb-4">
+                            <span class="inline-block">ℹ️</span> Current Settings
+                        </h4>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <strong>Event Date:</strong> <span id="currentEventDate">Not set</span>
+                            </div>
+                            <div>
+                                <strong>Event Time:</strong> <span id="currentEventTime">Not set</span>
+                            </div>
+                            <div>
+                                <strong>Status:</strong> <span id="currentEventStatus">To be announced</span>
+                            </div>
+                            <div>
+                                <strong>Total Visitors:</strong> <span id="currentVisitorCount">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generate Cards Tab -->
+                <div id="admin-cards" class="admin-content hidden bg-white rounded-lg card-shadow p-6">
+                    <h3 class="text-xl font-bold mb-4">Generate Participation Cards</h3>
+                    
+                    <div class="mb-6">
+                        <select id="cardParticipant" class="w-full px-4 py-2 border border-gray-300 rounded-lg mb-4">
+                            <option value="">Select Participant</option>
+                        </select>
+                        <button onclick="generateCard()" class="bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold">
+                            Generate Card
+                        </button>
+                    </div>
+
+                    <div id="participationCard" class="hidden">
+                        <!-- Card will be generated here -->
+                    </div>
+                </div>
+
+                <!-- Data Management Tab -->
+                <div id="admin-data" class="admin-content hidden bg-white rounded-lg card-shadow p-6">
+                    <h3 class="text-xl font-bold mb-6 text-red-600">Website Data Management</h3>
+                    
+                    <!-- Statistics -->
+                    <div class="grid md:grid-cols-4 gap-4 mb-8">
+                        <div class="bg-blue-50 p-4 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-blue-600" id="totalParticipants">0</div>
+                            <div class="text-sm text-gray-600">Total Participants</div>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-green-600" id="totalItems">0</div>
+                            <div class="text-sm text-gray-600">Competition Items</div>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-purple-600" id="totalResults">0</div>
+                            <div class="text-sm text-gray-600">Results Entered</div>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-yellow-600" id="dataSize">0 KB</div>
+                            <div class="text-sm text-gray-600">Storage Used</div>
+                        </div>
+                    </div>
+
+                    <!-- Export/Import Section -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-green-600">📤 Export Data</h4>
+                            <p class="text-sm text-gray-600 mb-4">Download all website data as backup files</p>
+                            <div class="space-y-2">
+                                <button onclick="exportData('participants')" class="w-full bg-green-500 text-white px-4 py-2 rounded text-sm">
+                                    Export Participants Data
+                                </button>
+                                <button onclick="exportData('items')" class="w-full bg-green-500 text-white px-4 py-2 rounded text-sm">
+                                    Export Competition Items
+                                </button>
+                                <button onclick="exportData('results')" class="w-full bg-green-500 text-white px-4 py-2 rounded text-sm">
+                                    Export Results Data
+                                </button>
+                                <button onclick="exportData('all')" class="w-full bg-green-700 text-white px-4 py-2 rounded font-semibold">
+                                    Export All Data
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-6">
+                            <h4 class="text-lg font-semibold mb-4 text-blue-600">📥 Import Data</h4>
+                            <p class="text-sm text-gray-600 mb-4">Upload and restore data from backup files</p>
+                            <div class="space-y-2">
+                                <input type="file" id="importFile" accept=".json" class="w-full px-3 py-2 border border-gray-300 rounded text-sm">
+                                <button onclick="importData()" class="w-full bg-blue-500 text-white px-4 py-2 rounded text-sm">
+                                    Import Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Management Actions -->
+                    <div class="border border-red-200 rounded-lg p-6 bg-red-50">
+                        <h4 class="text-lg font-semibold mb-4 text-red-600">⚠️ Danger Zone</h4>
+                        <p class="text-sm text-gray-600 mb-4">These actions cannot be undone. Please export data before proceeding.</p>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <button onclick="clearData('participants')" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded text-sm">
+                                Clear All Participants
+                            </button>
+                            <button onclick="clearData('results')" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded text-sm">
+                                Clear All Results
+                            </button>
+                            <button onclick="clearData('all')" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-semibold">
+                                Reset All Data
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Data Viewer -->
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold mb-4">📊 Data Viewer</h4>
+                        <div class="mb-4">
+                            <select id="dataViewer" class="px-4 py-2 border border-gray-300 rounded-lg">
+                                <option value="">Select data to view</option>
+                                <option value="participants">Participants Data</option>
+                                <option value="items">Competition Items</option>
+                                <option value="results">Results Data</option>
+                            </select>
+                            <button onclick="viewData()" class="ml-2 bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                                View Data
+                            </button>
+                        </div>
+                        <div id="dataDisplay" class="bg-gray-100 p-4 rounded-lg max-h-60 overflow-auto text-sm font-mono hidden">
+                            <!-- Data will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="text-4xl mb-4">✅</div>
+                <h3 class="text-xl font-bold mb-2">Success!</h3>
+                <p id="successMessage" class="text-gray-600 mb-4"></p>
+                <button onclick="closeModal()" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-2 rounded-lg">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Universal Data Storage System - Shared Across All Users
+        class DataManager {
+            constructor() {
+                this.storagePrefix = 'kalolsavam_shared_';
+                this.backupInterval = 10000; // 10 seconds for faster sync
+                this.maxBackups = 20;
+                this.autoSaveEnabled = true;
+                this.syncInterval = 5000; // Check for updates every 5 seconds
+                
+                // Initialize data with universal sharing
+                this.participants = this.loadData('participants', []);
+                this.items = this.loadData('items', []);
+                this.results = this.loadData('results', []);
+                this.eventSettings = this.loadData('event_settings', {"date": "", "time": "", "status": "tba"});
+                this.visitorCount = parseInt(localStorage.getItem(this.storagePrefix + 'visitor_count') || '0');
+                this.sessionId = this.generateSessionId();
+                this.lastSync = Date.now();
+                
+                // Start systems
+                this.startAutoBackup();
+                this.startSyncSystem();
+                this.initializeUniversalStorage();
+                
+                // Save data on page unload and visibility change
+                window.addEventListener('beforeunload', () => this.saveAllData());
+                window.addEventListener('visibilitychange', () => {
+                    if (document.visibilityState === 'visible') {
+                        this.syncFromStorage();
+                    } else {
+                        this.saveAllData();
+                    }
+                });
+                
+                // Save data periodically
+                setInterval(() => this.saveAllData(), 5000); // Every 5 seconds
+                
+                // Listen for storage changes from other tabs/users
+                window.addEventListener('storage', (e) => {
+                    if (e.key && e.key.startsWith(this.storagePrefix)) {
+                        this.handleStorageChange(e);
+                    }
+                });
+            }
+            
+            generateSessionId() {
+                return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            }
+            
+            initializeUniversalStorage() {
+                // Mark this session as active
+                const activeSessions = this.loadData('active_sessions', {});
+                activeSessions[this.sessionId] = {
+                    timestamp: Date.now(),
+                    userAgent: navigator.userAgent.substring(0, 100)
+                };
+                this.saveData('active_sessions', activeSessions);
+                
+                // Clean old sessions (older than 1 hour)
+                this.cleanOldSessions();
+                
+                // Set up session heartbeat
+                setInterval(() => {
+                    const sessions = this.loadData('active_sessions', {});
+                    sessions[this.sessionId] = {
+                        timestamp: Date.now(),
+                        userAgent: navigator.userAgent.substring(0, 100)
+                    };
+                    this.saveData('active_sessions', sessions);
+                    this.cleanOldSessions();
+                }, 30000); // Update every 30 seconds
+            }
+            
+            cleanOldSessions() {
+                const sessions = this.loadData('active_sessions', {});
+                const oneHourAgo = Date.now() - (60 * 60 * 1000);
+                
+                Object.keys(sessions).forEach(sessionId => {
+                    if (sessions[sessionId].timestamp < oneHourAgo) {
+                        delete sessions[sessionId];
+                    }
+                });
+                
+                this.saveData('active_sessions', sessions);
+            }
+            
+            startSyncSystem() {
+                // Sync data from storage every few seconds
+                setInterval(() => {
+                    this.syncFromStorage();
+                }, this.syncInterval);
+            }
+            
+            syncFromStorage() {
+                try {
+                    const lastModified = localStorage.getItem(this.storagePrefix + 'last_modified');
+                    if (lastModified && parseInt(lastModified) > this.lastSync) {
+                        // Data has been updated by another user/tab
+                        this.participants = this.loadData('participants', []);
+                        this.items = this.loadData('items', []);
+                        this.results = this.loadData('results', []);
+                        this.eventSettings = this.loadData('event_settings', {"date": "", "time": "", "status": "tba"});
+                        this.visitorCount = parseInt(localStorage.getItem(this.storagePrefix + 'visitor_count') || '0');
+                        
+                        this.lastSync = Date.now();
+                        
+                        // Update UI if admin panel is open
+                        if (isAdminLoggedIn && document.getElementById('adminPanel') && !document.getElementById('adminPanel').classList.contains('hidden')) {
+                            this.refreshAdminUI();
+                        }
+                        
+                        // Update visitor count display
+                        this.updateAllDisplays();
+                        
+                        console.log('Data synced from shared storage');
+                    }
+                } catch (error) {
+                    console.error('Sync error:', error);
+                }
+            }
+            
+            handleStorageChange(event) {
+                // Handle real-time storage changes from other tabs/users
+                if (event.key.includes('participants') || 
+                    event.key.includes('items') || 
+                    event.key.includes('results') || 
+                    event.key.includes('event_settings') ||
+                    event.key.includes('visitor_count')) {
+                    
+                    setTimeout(() => this.syncFromStorage(), 100);
+                }
+            }
+            
+            refreshAdminUI() {
+                // Refresh admin interface elements
+                if (document.getElementById('admin-participants') && !document.getElementById('admin-participants').classList.contains('hidden')) {
+                    loadParticipantsTable();
+                }
+                if (document.getElementById('admin-items') && !document.getElementById('admin-items').classList.contains('hidden')) {
+                    loadItemsManagement();
+                }
+                if (document.getElementById('admin-results-entry') && !document.getElementById('admin-results-entry').classList.contains('hidden')) {
+                    loadResultsManagement();
+                }
+                if (document.getElementById('admin-data') && !document.getElementById('admin-data').classList.contains('hidden')) {
+                    updateDataStatistics();
+                }
+            }
+            
+            updateAllDisplays() {
+                updateVisitorCount();
+                updateEventDate();
+                
+                // Update results page if visible
+                if (document.getElementById('results') && !document.getElementById('results').classList.contains('hidden')) {
+                    displayResults();
+                }
+            }
+            
+            loadData(key, defaultValue) {
+                try {
+                    const data = localStorage.getItem(this.storagePrefix + key);
+                    return data ? JSON.parse(data) : defaultValue;
+                } catch (error) {
+                    console.error(`Error loading ${key}:`, error);
+                    return defaultValue;
+                }
+            }
+            
+            saveData(key, data) {
+                try {
+                    localStorage.setItem(this.storagePrefix + key, JSON.stringify(data));
+                    // Update modification timestamp for universal sync
+                    localStorage.setItem(this.storagePrefix + 'last_modified', Date.now().toString());
+                    this.createBackup(key, data);
+                    return true;
+                } catch (error) {
+                    console.error(`Error saving ${key}:`, error);
+                    return false;
+                }
+            }
+            
+            saveAllData() {
+                if (!this.autoSaveEnabled) return;
+                
+                this.saveData('participants', this.participants);
+                this.saveData('items', this.items);
+                this.saveData('results', this.results);
+                this.saveData('event_settings', this.eventSettings);
+                localStorage.setItem(this.storagePrefix + 'visitor_count', this.visitorCount.toString());
+                
+                // Update timestamps for universal sharing
+                const now = Date.now();
+                localStorage.setItem(this.storagePrefix + 'last_save', new Date().toISOString());
+                localStorage.setItem(this.storagePrefix + 'last_modified', now.toString());
+                this.lastSync = now;
+                
+                // Broadcast change to other tabs/users
+                this.broadcastDataChange();
+            }
+            
+            broadcastDataChange() {
+                // Create a custom event to notify other tabs
+                try {
+                    const changeEvent = new CustomEvent('kalolsavam_data_changed', {
+                        detail: {
+                            timestamp: Date.now(),
+                            sessionId: this.sessionId
+                        }
+                    });
+                    window.dispatchEvent(changeEvent);
+                } catch (error) {
+                    console.error('Broadcast error:', error);
+                }
+            }
+            
+            createBackup(key, data) {
+                try {
+                    const timestamp = new Date().toISOString();
+                    const backupKey = `${this.storagePrefix}backup_${key}_${timestamp}`;
+                    localStorage.setItem(backupKey, JSON.stringify({
+                        data: data,
+                        timestamp: timestamp,
+                        version: '1.0'
+                    }));
+                    
+                    // Clean old backups
+                    this.cleanOldBackups(key);
+                } catch (error) {
+                    console.error('Backup creation failed:', error);
+                }
+            }
+            
+            cleanOldBackups(key) {
+                try {
+                    const backupKeys = Object.keys(localStorage)
+                        .filter(k => k.startsWith(`${this.storagePrefix}backup_${key}_`))
+                        .sort()
+                        .reverse();
+                    
+                    // Keep only the latest backups
+                    if (backupKeys.length > this.maxBackups) {
+                        backupKeys.slice(this.maxBackups).forEach(k => {
+                            localStorage.removeItem(k);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Backup cleanup failed:', error);
+                }
+            }
+            
+            startAutoBackup() {
+                setInterval(() => {
+                    if (this.autoSaveEnabled) {
+                        this.saveAllData();
+                    }
+                }, this.backupInterval);
+            }
+            
+            getStorageInfo() {
+                let totalSize = 0;
+                let itemCount = 0;
+                
+                for (let key in localStorage) {
+                    if (key.startsWith(this.storagePrefix)) {
+                        totalSize += localStorage[key].length;
+                        itemCount++;
+                    }
+                }
+                
+                return {
+                    totalSize: totalSize,
+                    itemCount: itemCount,
+                    sizeInKB: (totalSize / 1024).toFixed(2),
+                    lastSave: localStorage.getItem(this.storagePrefix + 'last_save') || 'Never'
+                };
+            }
+            
+            restoreFromBackup(key, timestamp) {
+                try {
+                    const backupKey = `${this.storagePrefix}backup_${key}_${timestamp}`;
+                    const backup = JSON.parse(localStorage.getItem(backupKey));
+                    
+                    if (backup && backup.data) {
+                        this[key] = backup.data;
+                        this.saveData(key, backup.data);
+                        return true;
+                    }
+                    return false;
+                } catch (error) {
+                    console.error('Restore failed:', error);
+                    return false;
+                }
+            }
+            
+            exportAllData() {
+                return {
+                    participants: this.participants,
+                    items: this.items,
+                    results: this.results,
+                    eventSettings: this.eventSettings,
+                    visitorCount: this.visitorCount,
+                    exportDate: new Date().toISOString(),
+                    version: '1.0'
+                };
+            }
+            
+            importAllData(data) {
+                try {
+                    if (data.participants) this.participants = data.participants;
+                    if (data.items) this.items = data.items;
+                    if (data.results) this.results = data.results;
+                    if (data.eventSettings) this.eventSettings = data.eventSettings;
+                    if (data.visitorCount !== undefined) this.visitorCount = data.visitorCount;
+                    
+                    this.saveAllData();
+                    return true;
+                } catch (error) {
+                    console.error('Import failed:', error);
+                    return false;
+                }
+            }
+        }
+        
+        // Initialize data manager
+        const dataManager = new DataManager();
+        
+        // Legacy variables for compatibility
+        let participants = dataManager.participants;
+        let items = dataManager.items;
+        let results = dataManager.results;
+        let eventSettings = dataManager.eventSettings;
+        let visitorCount = dataManager.visitorCount;
+        let isAdminLoggedIn = false;
+
+        // Initialize default items if empty
+        if (items.length === 0) {
+            items = [
+                { id: 1, name: 'Classical Dance', category: 'Dance' },
+                { id: 2, name: 'Folk Dance', category: 'Dance' },
+                { id: 3, name: 'Classical Music', category: 'Music' },
+                { id: 4, name: 'Light Music', category: 'Music' },
+                { id: 5, name: 'Drama', category: 'Drama' },
+                { id: 6, name: 'Mono Act', category: 'Drama' },
+                { id: 7, name: 'Painting', category: 'Art' },
+                { id: 8, name: 'Poetry', category: 'Literature' }
+            ];
+            localStorage.setItem('kalolsavam_items', JSON.stringify(items));
+        }
+
+        // Navigation
+        function showSection(sectionName) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionName).classList.remove('hidden');
+            
+            if (sectionName === 'register') {
+                loadItemsForRegistration();
+            } else if (sectionName === 'results') {
+                loadResults();
+            }
+        }
+
+        // Registration
+        function loadItemsForRegistration() {
+            const itemsList = document.getElementById('itemsList');
+            itemsList.innerHTML = items.map(item => `
+                <label class="flex items-center space-x-2 p-2 border border-gray-200 rounded cursor-pointer hover:bg-gray-50">
+                    <input type="checkbox" name="selectedItems" value="${item.id}" class="text-purple-500">
+                    <span class="text-sm">${item.name} (${item.category})</span>
+                </label>
+            `).join('');
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const selectedItems = Array.from(document.querySelectorAll('input[name="selectedItems"]:checked')).map(cb => parseInt(cb.value));
+            
+            if (selectedItems.length === 0) {
+                alert('Please select at least one competition item');
+                return;
+            }
+
+            const participant = {
+                id: Date.now(),
+                name: document.getElementById('studentName').value,
+                contact: document.getElementById('contactNumber').value,
+                school: document.getElementById('schoolName').value,
+                class: document.getElementById('studentClass').value,
+                division: document.getElementById('division').value,
+                items: selectedItems,
+                registrationDate: new Date().toISOString()
+            };
+
+            // Handle photo upload (store as base64)
+            const photoFile = document.getElementById('studentPhoto').files[0];
+            if (photoFile) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    participant.photo = e.target.result;
+                    saveParticipant(participant);
+                };
+                reader.readAsDataURL(photoFile);
+            } else {
+                saveParticipant(participant);
+            }
+        });
+
+        function saveParticipant(participant) {
+            participants.push(participant);
+            dataManager.participants = participants;
+            dataManager.saveAllData();
+            
+            // Show success with real-time sync notification
+            showSuccess('Registration successful! Your participation ID is: ' + participant.id + '. Data is automatically shared with all users.');
+            document.getElementById('registrationForm').reset();
+            
+            // Notify about universal storage
+            setTimeout(() => {
+                showNotification('✅ Registration saved and synced across all devices!', 'success');
+            }, 1000);
+        }
+
+        // Results
+        function loadResults() {
+            const resultFilter = document.getElementById('resultFilter');
+            const resultsDisplay = document.getElementById('resultsDisplay');
+            
+            // Load filter options
+            resultFilter.innerHTML = '<option value="">All Items</option>' + 
+                items.map(item => `<option value="${item.id}">${item.name}</option>`).join('');
+            
+            displayResults();
+        }
+
+        function displayResults() {
+            const resultsDisplay = document.getElementById('resultsDisplay');
+            const filterValue = document.getElementById('resultFilter').value;
+            
+            let filteredResults = results;
+            if (filterValue) {
+                filteredResults = results.filter(result => result.itemId == filterValue);
+            }
+
+            if (filteredResults.length === 0) {
+                resultsDisplay.innerHTML = `
+                    <div class="text-center text-gray-500 py-8">
+                        <div class="text-4xl mb-4">🏆</div>
+                        <p>No results available yet</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const groupedResults = {};
+            filteredResults.forEach(result => {
+                if (!groupedResults[result.itemId]) {
+                    groupedResults[result.itemId] = [];
+                }
+                groupedResults[result.itemId].push(result);
+            });
+
+            resultsDisplay.innerHTML = Object.keys(groupedResults).map(itemId => {
+                const item = items.find(i => i.id == itemId);
+                const itemResults = groupedResults[itemId].sort((a, b) => {
+                    const positions = { '1st': 1, '2nd': 2, '3rd': 3 };
+                    return positions[a.position] - positions[b.position];
+                });
+
+                return `
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <h3 class="text-xl font-bold mb-4 text-purple-800">${item.name}</h3>
+                        <div class="space-y-2">
+                            ${itemResults.map(result => {
+                                const participant = participants.find(p => p.id == result.participantId);
+                                const positionEmoji = { '1st': '🥇', '2nd': '🥈', '3rd': '🥉' };
+                                return `
+                                    <div class="flex items-center justify-between bg-white p-3 rounded">
+                                        <div class="flex items-center space-x-3">
+                                            <span class="text-2xl">${positionEmoji[result.position]}</span>
+                                            <div>
+                                                <p class="font-semibold">${participant.name}</p>
+                                                <p class="text-sm text-gray-600">${participant.school} - Class ${participant.class}${participant.division}</p>
+                                            </div>
+                                        </div>
+                                        <span class="font-bold text-lg">${result.position} Place</span>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        document.getElementById('resultFilter').addEventListener('change', displayResults);
+
+        // Admin Functions
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            if (username === 'admin' && password === 'Ahmad@123') {
+                isAdminLoggedIn = true;
+                document.getElementById('adminLogin').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                loadAdminData();
+            } else {
+                alert('Invalid credentials');
+            }
+        });
+
+        function adminLogout() {
+            isAdminLoggedIn = false;
+            document.getElementById('adminLogin').classList.remove('hidden');
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('adminUsername').value = '';
+            document.getElementById('adminPassword').value = '';
+        }
+
+        function showAdminTab(tabName) {
+            document.querySelectorAll('.admin-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById('admin-' + tabName).classList.remove('hidden');
+            
+            if (tabName === 'participants') {
+                loadParticipantsTable();
+            } else if (tabName === 'results-entry') {
+                loadResultsEntry();
+            } else if (tabName === 'cards') {
+                loadCardGeneration();
+            } else if (tabName === 'event-settings') {
+                loadEventSettings();
+            } else if (tabName === 'data') {
+                loadDataManagement();
+            }
+        }
+
+        // Date and Time Functions
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit'
+            };
+            document.getElementById('currentDateTime').textContent = now.toLocaleDateString('en-US', options);
+        }
+
+        function updateEventDate() {
+            const eventDateElement = document.getElementById('eventDate');
+            if (eventSettings.status === 'tba') {
+                eventDateElement.textContent = 'Date: To be announced soon';
+            } else if (eventSettings.date) {
+                const eventDate = new Date(eventSettings.date + (eventSettings.time ? 'T' + eventSettings.time : ''));
+                const options = { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric'
+                };
+                let dateText = 'Date: ' + eventDate.toLocaleDateString('en-US', options);
+                if (eventSettings.time) {
+                    dateText += ' at ' + eventDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+                }
+                eventDateElement.textContent = dateText;
+            }
+        }
+
+        function updateVisitorCount() {
+            document.getElementById('visitorCount').textContent = visitorCount.toLocaleString();
+            if (document.getElementById('adminVisitorCount')) {
+                document.getElementById('adminVisitorCount').textContent = visitorCount.toLocaleString();
+            }
+            if (document.getElementById('currentVisitorCount')) {
+                document.getElementById('currentVisitorCount').textContent = visitorCount.toLocaleString();
+            }
+        }
+
+        function incrementVisitorCount() {
+            const lastVisit = localStorage.getItem('kalolsavam_last_visit');
+            const today = new Date().toDateString();
+            
+            if (lastVisit !== today) {
+                visitorCount++;
+                dataManager.visitorCount = visitorCount;
+                dataManager.saveAllData();
+                localStorage.setItem('kalolsavam_last_visit', today);
+                updateVisitorCount();
+            }
+        }
+
+        function loadAdminData() {
+            loadItemsManagement();
+            showAdminTab('items');
+        }
+
+        // Items Management
+        function loadItemsManagement() {
+            const itemsManagement = document.getElementById('itemsManagement');
+            itemsManagement.innerHTML = items.map(item => `
+                <div class="flex items-center justify-between bg-gray-50 p-3 rounded">
+                    <div>
+                        <span class="font-semibold">${item.name}</span>
+                        <span class="text-sm text-gray-600 ml-2">(${item.category})</span>
+                    </div>
+                    <button onclick="deleteItem(${item.id})" class="bg-red-500 text-white px-3 py-1 rounded text-sm">
+                        Delete
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('addItemForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const newItem = {
+                id: Date.now(),
+                name: document.getElementById('newItemName').value,
+                category: document.getElementById('newItemCategory').value
+            };
+            
+            items.push(newItem);
+            dataManager.items = items;
+            dataManager.saveAllData();
+            
+            loadItemsManagement();
+            document.getElementById('addItemForm').reset();
+            showSuccess('Item added successfully!');
+        });
+
+        function deleteItem(itemId) {
+            if (confirm('Are you sure you want to delete this item?')) {
+                items = items.filter(item => item.id !== itemId);
+                dataManager.items = items;
+                dataManager.saveAllData();
+                loadItemsManagement();
+                showSuccess('Item deleted successfully!');
+            }
+        }
+
+        // Participants Management
+        function loadParticipantsTable() {
+            const participantsTable = document.getElementById('participantsTable');
+            participantsTable.innerHTML = participants.map(participant => {
+                const participantItems = participant.items.map(itemId => {
+                    const item = items.find(i => i.id === itemId);
+                    return item ? item.name : 'Unknown';
+                }).join(', ');
+
+                return `
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">${participant.name}</td>
+                        <td class="border border-gray-300 px-4 py-2">${participant.school}</td>
+                        <td class="border border-gray-300 px-4 py-2">${participant.class}${participant.division}</td>
+                        <td class="border border-gray-300 px-4 py-2">${participant.contact}</td>
+                        <td class="border border-gray-300 px-4 py-2 text-sm">${participantItems}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        document.getElementById('participantSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#participantsTable tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // Results Entry
+        function loadResultsEntry() {
+            const resultItem = document.getElementById('resultItem');
+            const resultWinner = document.getElementById('resultWinner');
+            
+            resultItem.innerHTML = '<option value="">Select Item</option>' + 
+                items.map(item => `<option value="${item.id}">${item.name}</option>`).join('');
+            
+            resultWinner.innerHTML = '<option value="">Select Participant</option>' + 
+                participants.map(participant => `<option value="${participant.id}">${participant.name} (${participant.school})</option>`).join('');
+            
+            loadResultsManagement();
+        }
+
+        document.getElementById('resultEntryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const result = {
+                id: Date.now(),
+                itemId: parseInt(document.getElementById('resultItem').value),
+                participantId: parseInt(document.getElementById('resultWinner').value),
+                position: document.getElementById('resultPosition').value
+            };
+            
+            results.push(result);
+            dataManager.results = results;
+            dataManager.saveAllData();
+            
+            loadResultsManagement();
+            document.getElementById('resultEntryForm').reset();
+            showSuccess('Result added successfully!');
+        });
+
+        function loadResultsManagement() {
+            const resultsManagement = document.getElementById('resultsManagement');
+            resultsManagement.innerHTML = results.map(result => {
+                const item = items.find(i => i.id === result.itemId);
+                const participant = participants.find(p => p.id === result.participantId);
+                const positionEmoji = { '1st': '🥇', '2nd': '🥈', '3rd': '🥉' };
+                
+                return `
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-xl">${positionEmoji[result.position]}</span>
+                            <div>
+                                <span class="font-semibold">${item.name}</span>
+                                <span class="text-sm text-gray-600 ml-2">- ${participant.name} (${result.position} Place)</span>
+                            </div>
+                        </div>
+                        <button onclick="deleteResult(${result.id})" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">
+                            Delete
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function deleteResult(resultId) {
+            if (confirm('Are you sure you want to delete this result?')) {
+                results = results.filter(result => result.id !== resultId);
+                dataManager.results = results;
+                dataManager.saveAllData();
+                loadResultsManagement();
+                showSuccess('Result deleted successfully!');
+            }
+        }
+
+        // Event Settings Management
+        function loadEventSettings() {
+            document.getElementById('eventDateInput').value = eventSettings.date || '';
+            document.getElementById('eventTimeInput').value = eventSettings.time || '';
+            document.getElementById('eventStatusInput').value = eventSettings.status || 'tba';
+            
+            updateEventSettingsDisplay();
+        }
+
+        function updateEventSettingsDisplay() {
+            document.getElementById('currentEventDate').textContent = eventSettings.date || 'Not set';
+            document.getElementById('currentEventTime').textContent = eventSettings.time || 'Not set';
+            document.getElementById('currentEventStatus').textContent = getStatusText(eventSettings.status);
+            updateVisitorCount();
+        }
+
+        function getStatusText(status) {
+            const statusMap = {
+                'announced': 'Date Announced',
+                'tba': 'To be announced',
+                'ongoing': 'Event Ongoing',
+                'completed': 'Event Completed'
+            };
+            return statusMap[status] || 'To be announced';
+        }
+
+        document.getElementById('eventDateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            eventSettings.date = document.getElementById('eventDateInput').value;
+            eventSettings.time = document.getElementById('eventTimeInput').value;
+            eventSettings.status = document.getElementById('eventStatusInput').value;
+            
+            dataManager.eventSettings = eventSettings;
+            dataManager.saveAllData();
+            
+            updateEventDate();
+            updateEventSettingsDisplay();
+            showSuccess('Event settings updated successfully!');
+        });
+
+        function resetVisitorCounter() {
+            const newCount = parseInt(document.getElementById('visitorResetInput').value) || 0;
+            visitorCount = newCount;
+            dataManager.visitorCount = visitorCount;
+            dataManager.saveAllData();
+            updateVisitorCount();
+            showSuccess('Visitor counter reset to ' + newCount);
+        }
+
+        // Card Generation
+        function loadCardGeneration() {
+            const cardParticipant = document.getElementById('cardParticipant');
+            cardParticipant.innerHTML = '<option value="">Select Participant</option>' + 
+                participants.map(participant => `<option value="${participant.id}">${participant.name} (${participant.school})</option>`).join('');
+        }
+
+        function generateCard() {
+            const participantId = document.getElementById('cardParticipant').value;
+            if (!participantId) {
+                alert('Please select a participant');
+                return;
+            }
+            
+            const participant = participants.find(p => p.id == participantId);
+            const participantItems = participant.items.map(itemId => {
+                const item = items.find(i => i.id === itemId);
+                return item ? item.name : 'Unknown';
+            });
+            
+            const cardHtml = `
+                <div class="bg-white border-2 border-purple-500 rounded-lg p-6 max-w-md mx-auto card-shadow">
+                    <div class="text-center mb-4">
+                        <h3 class="text-xl font-bold text-purple-800">Kerala School Kalolsavam</h3>
+                        <p class="text-sm text-gray-600">LPS Vilakkupara</p>
+                        <div class="text-2xl my-2">🎭</div>
+                    </div>
+                    
+                    <div class="border-t border-b border-gray-200 py-4 my-4">
+                        <h4 class="font-bold text-lg mb-2">PARTICIPATION CARD</h4>
+                        <div class="space-y-2 text-sm">
+                            <p><strong>Name:</strong> ${participant.name}</p>
+                            <p><strong>School:</strong> ${participant.school}</p>
+                            <p><strong>Class:</strong> ${participant.class}${participant.division}</p>
+                            <p><strong>Contact:</strong> ${participant.contact}</p>
+                            <p><strong>ID:</strong> ${participant.id}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <h5 class="font-semibold mb-2">Competition Items:</h5>
+                        <ul class="text-sm space-y-1">
+                            ${participantItems.map(item => `<li>• ${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div class="text-center text-xs text-gray-500 border-t pt-2">
+                        <p>Generated on: ${new Date().toLocaleDateString()}</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4 no-print">
+                    <button onclick="printCard()" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg mr-2">
+                        Print Card
+                    </button>
+                </div>
+            `;
+            
+            document.getElementById('participationCard').innerHTML = cardHtml;
+            document.getElementById('participationCard').classList.remove('hidden');
+        }
+
+        function printCard() {
+            window.print();
+        }
+
+        // Utility Functions
+        function showSuccess(message) {
+            document.getElementById('successMessage').textContent = message;
+            document.getElementById('successModal').classList.remove('hidden');
+            document.getElementById('successModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            document.getElementById('successModal').classList.remove('flex');
+        }
+        
+        // Real-time notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transform transition-all duration-300 translate-x-full`;
+            
+            const bgColor = type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500';
+            notification.className += ` ${bgColor} text-white`;
+            
+            notification.innerHTML = `
+                <div class="flex items-center space-x-2">
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-white hover:text-gray-200">
+                        ✕
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.parentElement.removeChild(notification);
+                    }
+                }, 300);
+            }, 5000);
+        }
+        
+        // Show sync status
+        function showSyncStatus() {
+            const activeSessions = dataManager.loadData('active_sessions', {});
+            const sessionCount = Object.keys(activeSessions).length;
+            
+            if (sessionCount > 1) {
+                showNotification(`🔄 ${sessionCount} active users sharing this data in real-time`, 'info');
+            }
+        }
+
+        // Data Management Functions
+        function loadDataManagement() {
+            updateDataStatistics();
+        }
+
+        function updateDataStatistics() {
+            document.getElementById('totalParticipants').textContent = participants.length;
+            document.getElementById('totalItems').textContent = items.length;
+            document.getElementById('totalResults').textContent = results.length;
+            
+            // Calculate storage size
+            const allData = JSON.stringify({ participants, items, results });
+            const sizeInBytes = new Blob([allData]).size;
+            const sizeInKB = (sizeInBytes / 1024).toFixed(2);
+            document.getElementById('dataSize').textContent = sizeInKB + ' KB';
+        }
+
+        function exportData(type) {
+            let data, filename;
+            const timestamp = new Date().toISOString().split('T')[0];
+            
+            switch(type) {
+                case 'participants':
+                    data = { participants };
+                    filename = `kalolsavam_participants_${timestamp}.json`;
+                    break;
+                case 'items':
+                    data = { items };
+                    filename = `kalolsavam_items_${timestamp}.json`;
+                    break;
+                case 'results':
+                    data = { results };
+                    filename = `kalolsavam_results_${timestamp}.json`;
+                    break;
+                case 'all':
+                    data = { participants, items, results, exportDate: new Date().toISOString() };
+                    filename = `kalolsavam_complete_backup_${timestamp}.json`;
+                    break;
+            }
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            showSuccess(`${type === 'all' ? 'Complete backup' : type} exported successfully!`);
+        }
+
+        function importData() {
+            const fileInput = document.getElementById('importFile');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                alert('Please select a file to import');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const importedData = JSON.parse(e.target.result);
+                    
+                    if (confirm('This will replace existing data. Are you sure you want to continue?')) {
+                        if (importedData.participants) {
+                            participants = importedData.participants;
+                            localStorage.setItem('kalolsavam_participants', JSON.stringify(participants));
+                        }
+                        
+                        if (importedData.items) {
+                            items = importedData.items;
+                            localStorage.setItem('kalolsavam_items', JSON.stringify(items));
+                        }
+                        
+                        if (importedData.results) {
+                            results = importedData.results;
+                            localStorage.setItem('kalolsavam_results', JSON.stringify(results));
+                        }
+                        
+                        updateDataStatistics();
+                        showSuccess('Data imported successfully!');
+                        fileInput.value = '';
+                    }
+                } catch (error) {
+                    alert('Invalid file format. Please select a valid JSON backup file.');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function clearData(type) {
+            let confirmMessage;
+            
+            switch(type) {
+                case 'participants':
+                    confirmMessage = 'Are you sure you want to delete ALL participants? This cannot be undone!';
+                    break;
+                case 'results':
+                    confirmMessage = 'Are you sure you want to delete ALL results? This cannot be undone!';
+                    break;
+                case 'all':
+                    confirmMessage = 'Are you sure you want to RESET ALL DATA? This will delete everything and cannot be undone!';
+                    break;
+            }
+            
+            if (confirm(confirmMessage)) {
+                if (confirm('This is your final warning. All data will be permanently deleted. Continue?')) {
+                    switch(type) {
+                        case 'participants':
+                            participants = [];
+                            localStorage.setItem('kalolsavam_participants', JSON.stringify(participants));
+                            break;
+                        case 'results':
+                            results = [];
+                            localStorage.setItem('kalolsavam_results', JSON.stringify(results));
+                            break;
+                        case 'all':
+                            participants = [];
+                            results = [];
+                            items = [
+                                { id: 1, name: 'Classical Dance', category: 'Dance' },
+                                { id: 2, name: 'Folk Dance', category: 'Dance' },
+                                { id: 3, name: 'Classical Music', category: 'Music' },
+                                { id: 4, name: 'Light Music', category: 'Music' },
+                                { id: 5, name: 'Drama', category: 'Drama' },
+                                { id: 6, name: 'Mono Act', category: 'Drama' },
+                                { id: 7, name: 'Painting', category: 'Art' },
+                                { id: 8, name: 'Poetry', category: 'Literature' }
+                            ];
+                            localStorage.setItem('kalolsavam_participants', JSON.stringify(participants));
+                            localStorage.setItem('kalolsavam_results', JSON.stringify(results));
+                            localStorage.setItem('kalolsavam_items', JSON.stringify(items));
+                            break;
+                    }
+                    
+                    updateDataStatistics();
+                    showSuccess(`${type === 'all' ? 'All data' : type} cleared successfully!`);
+                }
+            }
+        }
+
+        function viewData() {
+            const dataType = document.getElementById('dataViewer').value;
+            const dataDisplay = document.getElementById('dataDisplay');
+            
+            if (!dataType) {
+                dataDisplay.classList.add('hidden');
+                return;
+            }
+            
+            let displayData;
+            switch(dataType) {
+                case 'participants':
+                    displayData = participants;
+                    break;
+                case 'items':
+                    displayData = items;
+                    break;
+                case 'results':
+                    displayData = results;
+                    break;
+            }
+            
+            dataDisplay.textContent = JSON.stringify(displayData, null, 2);
+            dataDisplay.classList.remove('hidden');
+        }
+
+        // Particle Animation System
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size between 2px and 8px
+                const size = Math.random() * 6 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Random horizontal position
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Random animation duration between 15-25 seconds
+                const duration = Math.random() * 10 + 15;
+                particle.style.animationDuration = duration + 's';
+                
+                // Random delay
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(particle);
+                
+                // Remove particle after animation completes
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, (duration + 5) * 1000);
+            }
+            
+            // Create initial particles
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createParticle, i * 1000);
+            }
+            
+            // Continue creating particles
+            setInterval(createParticle, 2000);
+        }
+        
+        // Mouse interaction effects
+        function addMouseEffects() {
+            document.addEventListener('mousemove', (e) => {
+                const cursor = document.createElement('div');
+                cursor.style.position = 'fixed';
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                cursor.style.width = '4px';
+                cursor.style.height = '4px';
+                cursor.style.background = 'rgba(255, 255, 255, 0.6)';
+                cursor.style.borderRadius = '50%';
+                cursor.style.pointerEvents = 'none';
+                cursor.style.zIndex = '9999';
+                cursor.style.animation = 'fadeOut 1s ease-out forwards';
+                
+                document.body.appendChild(cursor);
+                
+                setTimeout(() => {
+                    if (cursor.parentNode) {
+                        cursor.parentNode.removeChild(cursor);
+                    }
+                }, 1000);
+            });
+        }
+        
+        // Add fadeOut animation for mouse trail
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeOut {
+                0% { opacity: 1; transform: scale(1); }
+                100% { opacity: 0; transform: scale(0); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            addMouseEffects();
+            incrementVisitorCount();
+            updateEventDate();
+            updateVisitorCount();
+            
+            // Update time every second
+            setInterval(updateDateTime, 1000);
+            updateDateTime();
+            
+            // Show welcome message about universal storage
+            setTimeout(() => {
+                showNotification('🌐 Welcome! This website uses universal storage - all data is shared across all users in real-time.', 'info');
+            }, 2000);
+            
+            // Show sync status periodically
+            setTimeout(() => {
+                showSyncStatus();
+            }, 5000);
+            
+            // Check sync status every 30 seconds
+            setInterval(() => {
+                showSyncStatus();
+            }, 30000);
+            
+            // Listen for data changes from other users
+            window.addEventListener('kalolsavam_data_changed', (e) => {
+                if (e.detail.sessionId !== dataManager.sessionId) {
+                    showNotification('🔄 Data updated by another user - syncing now!', 'info');
+                }
+            });
+        });
+        
+        // Initialize
+        showSection('home');
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98850b8ba4da4463',t:'MTc1OTQxNjk3Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
